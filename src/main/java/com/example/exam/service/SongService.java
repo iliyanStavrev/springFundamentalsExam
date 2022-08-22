@@ -11,6 +11,7 @@ import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 public class SongService {
@@ -70,7 +71,7 @@ public class SongService {
                 .findAll()
                 .stream()
                 .filter(s -> s.getStyle().getName().equals(StyleNameEnum.POP))
-                .toList();
+                .collect(Collectors.toList());
     }
 
     public List<Song> getAllRocks() {
@@ -78,7 +79,7 @@ public class SongService {
                 .findAll()
                 .stream()
                 .filter(s -> s.getStyle().getName().equals(StyleNameEnum.ROCK))
-                .toList();
+                .collect(Collectors.toList());
     }
 
     public List<Song> getAllJazz() {
@@ -86,7 +87,7 @@ public class SongService {
                 .findAll()
                 .stream()
                 .filter(s -> s.getStyle().getName().equals(StyleNameEnum.JAZZ))
-                .toList();
+                .collect(Collectors.toList());
     }
 
     public void addToMyPlaylist(Long id) {
